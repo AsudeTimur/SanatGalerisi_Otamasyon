@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32901.82
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SanatGalerisi", "SanatGalerisi\SanatGalerisi.csproj", "{06022F88-090C-4444-BAE4-C8DEA53B0A4E}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{936CDABC-3068-4191-82F2-B27DFDF580B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{06022F88-090C-4444-BAE4-C8DEA53B0A4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06022F88-090C-4444-BAE4-C8DEA53B0A4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06022F88-090C-4444-BAE4-C8DEA53B0A4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06022F88-090C-4444-BAE4-C8DEA53B0A4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{936CDABC-3068-4191-82F2-B27DFDF580B0}.Debug|Any CPU.ActiveCfg = Debug
+		{936CDABC-3068-4191-82F2-B27DFDF580B0}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0E11A471-1C81-45D0-9ECA-BBC0D0B66257}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,723 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Costura.Fody.3.3.3\build\Costura.Fody.props" Condition="Exists('..\packages\Costura.Fody.3.3.3\build\Costura.Fody.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{06022F88-090C-4444-BAE4-C8DEA53B0A4E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SanatGalerisi</RootNamespace>
+    <AssemblyName>SanatGalerisi</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bunifu.Licensing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.Licensing.5.0.0\lib\net40\Bunifu.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms, Version=0.0.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.6.0.2\lib\net40\Bunifu.UI.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.1.5.3, Version=1.5.3.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.1.5.3.1.0.0\lib\net40\Bunifu.UI.WinForms.1.5.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Costura, Version=3.3.3.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
+      <HintPath>..\packages\Costura.Fody.3.3.3\lib\net40\Costura.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Registry, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Win32.Registry.5.0.0\lib\net461\Microsoft.Win32.Registry.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Registry.AccessControl, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Win32.Registry.AccessControl.6.0.0\lib\net461\Microsoft.Win32.Registry.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.SystemEvents, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Win32.SystemEvents.6.0.0\lib\net461\Microsoft.Win32.SystemEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=100.0.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharpSigned.105.2.3\lib\net46\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.CodeDom, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.CodeDom.6.0.0\lib\net461\System.CodeDom.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.6.0.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Odbc, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.Odbc.6.0.0\lib\net461\System.Data.Odbc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.OleDb, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.OleDb.6.0.0\lib\net461\System.Data.OleDb.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.3\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Diagnostics.EventLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.EventLog.6.0.0\lib\net461\System.Diagnostics.EventLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.PerformanceCounter, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.PerformanceCounter.6.0.0\lib\net461\System.Diagnostics.PerformanceCounter.dll</HintPath>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.DirectoryServices.Protocols" />
+    <Reference Include="System.Drawing.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.6.0.0\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.AccessControl.5.0.0\lib\net461\System.IO.FileSystem.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.6.0.0\lib\net461\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipes.AccessControl, Version=4.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipes.AccessControl.5.0.0\lib\net461\System.IO.Pipes.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Ports, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Ports.6.0.0\lib\net461\System.IO.Ports.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Context" />
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.6.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.1\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Cng, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Cng.5.0.0\lib\net47\System.Security.Cryptography.Cng.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Pkcs, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Pkcs.6.0.0\lib\net461\System.Security.Cryptography.Pkcs.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.ProtectedData, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.ProtectedData.6.0.0\lib\net461\System.Security.Cryptography.ProtectedData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Xml, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Xml.6.0.0\lib\net461\System.Security.Cryptography.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Permissions.6.0.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Duplex, Version=4.9.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Duplex.4.9.0\lib\net461\System.ServiceModel.Duplex.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Http, Version=4.9.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Http.4.9.0\lib\net461\System.ServiceModel.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.NetTcp, Version=4.9.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.NetTcp.4.9.0\lib\net461\System.ServiceModel.NetTcp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Primitives, Version=4.9.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Primitives.4.9.0\lib\net461\System.ServiceModel.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Security, Version=4.9.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Security.4.9.0\lib\net461\System.ServiceModel.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Syndication, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Syndication.6.0.0\lib\net461\System.ServiceModel.Syndication.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.ServiceProcess.ServiceController, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceProcess.ServiceController.6.0.0\lib\net461\System.ServiceProcess.ServiceController.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Text.Encoding.CodePages, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.6.0.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.AccessControl, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.AccessControl.6.0.0\lib\net461\System.Threading.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Web.Services.Description, Version=4.9.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Web.Services.Description.4.9.0\lib\net461\System.Web.Services.Description.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaglantiSinif.cs" />
+    <Compile Include="clssRandomKod.cs" />
+    <Compile Include="frmGelirler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGelirler.Designer.cs">
+      <DependentUpon>frmGelirler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGeriDonusler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGeriDonusler.Designer.cs">
+      <DependentUpon>frmGeriDonusler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGiderler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGiderler.Designer.cs">
+      <DependentUpon>frmGiderler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGorevliIslemleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGorevliIslemleri.Designer.cs">
+      <DependentUpon>frmGorevliIslemleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGorevliMuzayede.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGorevliMuzayede.Designer.cs">
+      <DependentUpon>frmGorevliMuzayede.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGorevliKodFogrulama.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGorevliKodFogrulama.Designer.cs">
+      <DependentUpon>frmGorevliKodFogrulama.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmResimEkleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmResimEkleme.Designer.cs">
+      <DependentUpon>frmResimEkleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGorevliSifremiUnuttum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGorevliSifremiUnuttum.Designer.cs">
+      <DependentUpon>frmGorevliSifremiUnuttum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGorevliYeniSifre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGorevliYeniSifre.Designer.cs">
+      <DependentUpon>frmGorevliYeniSifre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmYeniMuzayede.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYeniMuzayede.Designer.cs">
+      <DependentUpon>frmYeniMuzayede.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmYonetici.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYonetici.Designer.cs">
+      <DependentUpon>frmYonetici.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAnaSyf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAnaSyf.Designer.cs">
+      <DependentUpon>frmAnaSyf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMuzayedeIslemleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMuzayedeIslemleri.Designer.cs">
+      <DependentUpon>frmMuzayedeIslemleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMuzayedeListele.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMuzayedeListele.Designer.cs">
+      <DependentUpon>frmMuzayedeListele.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSntGlrs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSntGlrs.Designer.cs">
+      <DependentUpon>frmSntGlrs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSytRsm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSytRsm.Designer.cs">
+      <DependentUpon>frmSytRsm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMnzrRsm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMnzrRsm.Designer.cs">
+      <DependentUpon>frmMnzrRsm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHyvnRsm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHyvnRsm.Designer.cs">
+      <DependentUpon>frmHyvnRsm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmYoneticiIslemleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYoneticiIslemleri.Designer.cs">
+      <DependentUpon>frmYoneticiIslemleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmYoneticiKodDogrulama.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYoneticiKodDogrulama.Designer.cs">
+      <DependentUpon>frmYoneticiKodDogrulama.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmYoneticiMusteriBilgileri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYoneticiMusteriBilgileri.Designer.cs">
+      <DependentUpon>frmYoneticiMusteriBilgileri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmYoneticiSifremiUnuttum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYoneticiSifremiUnuttum.Designer.cs">
+      <DependentUpon>frmYoneticiSifremiUnuttum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmYoneticiYeniSifre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYoneticiYeniSifre.Designer.cs">
+      <DependentUpon>frmYoneticiYeniSifre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmİnsnRsm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmİnsnRsm.Designer.cs">
+      <DependentUpon>frmİnsnRsm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGlrKrl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGlrKrl.Designer.cs">
+      <DependentUpon>frmGlrKrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmIltsm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIltsm.Designer.cs">
+      <DependentUpon>frmIltsm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGirisSayfasi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGirisSayfasi.Designer.cs">
+      <DependentUpon>frmGirisSayfasi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGörevliGiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGörevliGiris.Designer.cs">
+      <DependentUpon>frmGörevliGiris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMuzayedeEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMuzayedeEkle.Designer.cs">
+      <DependentUpon>frmMuzayedeEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SanatGalerisiDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SanatGalerisiDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SanatGalerisiDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SanatGalerisiDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SanatGalerisiDataSet10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SanatGalerisiDataSet10.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SanatGalerisiDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SanatGalerisiDataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SanatGalerisiDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SanatGalerisiDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SanatGalerisiDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SanatGalerisiDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SanatGalerisiDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SanatGalerisiDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SanatGalerisiDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SanatGalerisiDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SanatGalerisiDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SanatGalerisiDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SanatGalerisiDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SanatGalerisiDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SanatGalerisiDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SanatGalerisiDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SanatGalerisiDataSet9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SanatGalerisiDataSet9.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SqlBaglantim.cs" />
+    <Compile Include="frmYoneticiSayfasi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYoneticiSayfasi.Designer.cs">
+      <DependentUpon>frmYoneticiSayfasi.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frmGelirler.resx">
+      <DependentUpon>frmGelirler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGeriDonusler.resx">
+      <DependentUpon>frmGeriDonusler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGiderler.resx">
+      <DependentUpon>frmGiderler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGorevliIslemleri.resx">
+      <DependentUpon>frmGorevliIslemleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGorevliMuzayede.resx">
+      <DependentUpon>frmGorevliMuzayede.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGorevliKodFogrulama.resx">
+      <DependentUpon>frmGorevliKodFogrulama.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmResimEkleme.resx">
+      <DependentUpon>frmResimEkleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGorevliSifremiUnuttum.resx">
+      <DependentUpon>frmGorevliSifremiUnuttum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGorevliYeniSifre.resx">
+      <DependentUpon>frmGorevliYeniSifre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmYeniMuzayede.resx">
+      <DependentUpon>frmYeniMuzayede.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmYonetici.resx">
+      <DependentUpon>frmYonetici.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAnaSyf.resx">
+      <DependentUpon>frmAnaSyf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMuzayedeIslemleri.resx">
+      <DependentUpon>frmMuzayedeIslemleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMuzayedeListele.resx">
+      <DependentUpon>frmMuzayedeListele.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSntGlrs.resx">
+      <DependentUpon>frmSntGlrs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSytRsm.resx">
+      <DependentUpon>frmSytRsm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMnzrRsm.resx">
+      <DependentUpon>frmMnzrRsm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHyvnRsm.resx">
+      <DependentUpon>frmHyvnRsm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmYoneticiIslemleri.resx">
+      <DependentUpon>frmYoneticiIslemleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmYoneticiKodDogrulama.resx">
+      <DependentUpon>frmYoneticiKodDogrulama.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmYoneticiMusteriBilgileri.resx">
+      <DependentUpon>frmYoneticiMusteriBilgileri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmYoneticiSayfasi.resx">
+      <DependentUpon>frmYoneticiSayfasi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmYoneticiSifremiUnuttum.resx">
+      <DependentUpon>frmYoneticiSifremiUnuttum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmYoneticiYeniSifre.resx">
+      <DependentUpon>frmYoneticiYeniSifre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmİnsnRsm.resx">
+      <DependentUpon>frmİnsnRsm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGlrKrl.resx">
+      <DependentUpon>frmGlrKrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIltsm.resx">
+      <DependentUpon>frmIltsm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGirisSayfasi.resx">
+      <DependentUpon>frmGirisSayfasi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGörevliGiris.resx">
+      <DependentUpon>frmGörevliGiris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMuzayedeEkle.resx">
+      <DependentUpon>frmMuzayedeEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="SanatGalerisiDataSet.xsc">
+      <DependentUpon>SanatGalerisiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SanatGalerisiDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SanatGalerisiDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SanatGalerisiDataSet.xss">
+      <DependentUpon>SanatGalerisiDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SanatGalerisiDataSet1.xsc">
+      <DependentUpon>SanatGalerisiDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="SanatGalerisiDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SanatGalerisiDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SanatGalerisiDataSet1.xss">
+      <DependentUpon>SanatGalerisiDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="SanatGalerisiDataSet10.xsc">
+      <DependentUpon>SanatGalerisiDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="SanatGalerisiDataSet10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SanatGalerisiDataSet10.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SanatGalerisiDataSet10.xss">
+      <DependentUpon>SanatGalerisiDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="SanatGalerisiDataSet11.xsc">
+      <DependentUpon>SanatGalerisiDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="SanatGalerisiDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SanatGalerisiDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SanatGalerisiDataSet11.xss">
+      <DependentUpon>SanatGalerisiDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="SanatGalerisiDataSet2.xsc">
+      <DependentUpon>SanatGalerisiDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="SanatGalerisiDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SanatGalerisiDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SanatGalerisiDataSet2.xss">
+      <DependentUpon>SanatGalerisiDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="SanatGalerisiDataSet3.xsc">
+      <DependentUpon>SanatGalerisiDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="SanatGalerisiDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SanatGalerisiDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SanatGalerisiDataSet3.xss">
+      <DependentUpon>SanatGalerisiDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="SanatGalerisiDataSet4.xsc">
+      <DependentUpon>SanatGalerisiDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="SanatGalerisiDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SanatGalerisiDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SanatGalerisiDataSet4.xss">
+      <DependentUpon>SanatGalerisiDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="SanatGalerisiDataSet5.xsc">
+      <DependentUpon>SanatGalerisiDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="SanatGalerisiDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SanatGalerisiDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SanatGalerisiDataSet5.xss">
+      <DependentUpon>SanatGalerisiDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="SanatGalerisiDataSet6.xsc">
+      <DependentUpon>SanatGalerisiDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="SanatGalerisiDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SanatGalerisiDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SanatGalerisiDataSet6.xss">
+      <DependentUpon>SanatGalerisiDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="SanatGalerisiDataSet7.xsc">
+      <DependentUpon>SanatGalerisiDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="SanatGalerisiDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SanatGalerisiDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SanatGalerisiDataSet7.xss">
+      <DependentUpon>SanatGalerisiDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="SanatGalerisiDataSet8.xsc">
+      <DependentUpon>SanatGalerisiDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="SanatGalerisiDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SanatGalerisiDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SanatGalerisiDataSet8.xss">
+      <DependentUpon>SanatGalerisiDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="SanatGalerisiDataSet9.xsc">
+      <DependentUpon>SanatGalerisiDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="SanatGalerisiDataSet9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SanatGalerisiDataSet9.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SanatGalerisiDataSet9.xss">
+      <DependentUpon>SanatGalerisiDataSet9.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Fody.4.0.2\build\Fody.targets" Condition="Exists('..\packages\Fody.4.0.2\build\Fody.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Fody.4.0.2\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.4.0.2\build\Fody.targets'))" />
+    <Error Condition="!Exists('..\packages\Costura.Fody.3.3.3\build\Costura.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Costura.Fody.3.3.3\build\Costura.Fody.props'))" />
+  </Target>
+</Project>
